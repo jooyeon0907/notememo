@@ -1,0 +1,6 @@
+
+@pull 하기 전 로컬 저장소와 리모트(원격) 저장소를 연동해줘야됨 
+	git branch --set-upstream-to=origin/master master
+	-> 기본 remote는 master 필요 시, 다른 brench로 연동하면 됨 
+
+	git pull --all	

@@ -1,0 +1,108 @@
+ahope@ahope-B250M-DS3H:~$  git config --global user.name "jooyeon0907"
+ahope@ahope-B250M-DS3H:~$  git config --global user.email "jooyeon0907@naver.com"
+ahope@ahope-B250M-DS3H:~$ 
+ahope@ahope-B250M-DS3H:~$  git config --global color.ui "auto"
+ahope@ahope-B250M-DS3H:~$ 
+ahope@ahope-B250M-DS3H:~$ pwd
+/home/ahope
+ahope@ahope-B250M-DS3H:~$ cd ~/jooyeon
+ahope@ahope-B250M-DS3H:~/jooyeon$ ls
+'3. template'   flask_study      '리눅스 명령어 공부할거'
+'flask 설치'    python-practice
+ahope@ahope-B250M-DS3H:~/jooyeon$ cd ./flask_study/
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study$ cd ./flask_prac2/microblog/
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ 
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git init
+/home/ahope/jooyeon/flask_study/flask_prac2/microblog/.git/ 안의 기존 깃 저장소를 다시 초기화했습니다
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ 
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git add .
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git status
+현재 브랜치 master
+커밋할 변경 사항:
+  (use "git restore --staged <file>..." to unstage)
+	수정함:        .gitignore
+	수정함:        app/__init__.py
+	새 파일:       app/errors.py
+	수정함:        app/forms.py
+	수정함:        app/models.py
+	수정함:        app/routes.py
+	새 파일:       app/templates/404.html
+	새 파일:       app/templates/500.html
+	수정함:        app/templates/_post.html
+	수정함:        app/templates/base.html
+	새 파일:       app/templates/edit_profile.html
+	수정함:        app/templates/login.html
+	수정함:        app/templates/user.html
+	새 파일:       config.env
+	수정함:        config.py
+	수정함:        "flask_memo/1. flask \354\204\244\354\271\230"
+	수정함:        flask_memo/4. web forms
+	새 파일:       "flask_memo/7. \354\230\244\353\245\230\354\262\230\353\246\254"
+	새 파일:       flask_memo/SSH
+	새 파일:       logs/microblog.log
+	새 파일:       logs/microblog.log.1
+	새 파일:       mail.log
+
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git commit -m "flask study"
+[master 17c70b6] flask study
+ 22 files changed, 436 insertions(+), 60 deletions(-)
+ create mode 100644 app/errors.py
+ create mode 100644 app/templates/404.html
+ create mode 100644 app/templates/500.html
+ create mode 100644 app/templates/edit_profile.html
+ rewrite app/templates/user.html (79%)
+ create mode 100644 config.env
+ create mode 100644 "flask_memo/7. \354\230\244\353\245\230\354\262\230\353\246\254"
+ create mode 100644 flask_memo/SSH
+ create mode 100644 logs/microblog.log
+ create mode 100644 logs/microblog.log.1
+ create mode 100644 mail.log
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git log
+commit 17c70b60956ad5cc3c8a7b5690ae9da4a90487c7 (HEAD -> master)
+Author: jooyeon0907 <jooyeon0907@naver.com>
+Date:   Tue Dec 8 18:24:12 2020 +0900
+
+    flask study
+
+commit 4f6b62609d58df5a2571347119e37a17568a5a33
+Author: jooyeon0907 <jooyeon0907@naver.com>
+Date:   Mon Dec 7 18:58:07 2020 +0900
+
+    study
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git remote add origin https://github.com/jooyeon0907/flask_study.git
+fatal: origin 리모트가 이미 있습니다.
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ 
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git push origin master
+git@github.com: Permission denied (publickey).
+fatal: 리모트 저장소에서 읽을 수 없습니다
+
+올바른 접근 권한이 있는지, 그리고 저장소가 있는지
+확인하십시오.
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git remote add origin git@github.com:jooyeon0907/flask_study.git
+fatal: origin 리모트가 이미 있습니다.
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git remote rm origin
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git remote rm origin
+fatal: No such remote: 'origin'
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ 
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ 
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git remote add origin git@github.com:jooyeon0907/flask_study.git
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git push origin master
+git@github.com: Permission denied (publickey).
+fatal: 리모트 저장소에서 읽을 수 없습니다
+
+올바른 접근 권한이 있는지, 그리고 저장소가 있는지
+확인하십시오.
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git remote set-url origin https://github.com/jooyeon0907/flask_study.git
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ git push origin master
+Username for 'https://github.com': jooyeon0907
+Password for 'https://jooyeon0907@github.com': 
+오브젝트 나열하는 중: 65, 완료.
+오브젝트 개수 세는 중: 100% (65/65), 완료.
+Delta compression using up to 4 threads
+오브젝트 압축하는 중: 100% (58/58), 완료.
+오브젝트 쓰는 중: 100% (65/65), 37.59 KiB | 3.76 MiB/s, 완료.
+Total 65 (delta 16), reused 0 (delta 0)
+remote: Resolving deltas: 100% (16/16), done.
+To https://github.com/jooyeon0907/flask_study.git
+ * [new branch]      master -> master
+ahope@ahope-B250M-DS3H:~/jooyeon/flask_study/flask_prac2/microblog$ 
