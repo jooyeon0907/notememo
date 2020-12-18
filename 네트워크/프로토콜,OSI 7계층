@@ -46,7 +46,8 @@ https://blog.naver.com/wpskaak/221668090804
     : 패킷들의 전송이 유효한지 확인하고 전송 실패한 패킷을 다시 전송하여 
       신뢰적인 전송을 보장
     : 데이터 단위 - 신뢰성있는 TCP 일 때 Segment, 신뢰성없는 UDP 일 때 Datagram
-    
+
+---------------------------------------------------------------------------------    
 5. 세션 계층 (Session layer)
     : 데이터가 통신하기 위한 논리적인 연결
     : 통신을 하기 위한 세션을 확립/유지/중단
@@ -54,29 +55,30 @@ https://blog.naver.com/wpskaak/221668090804
     : 데이터 단위 - Data(SPDU)
 
 6. 표현 계층 (Presentation Layer)
-    : 암복호화 처리, 코드변환, 압충, 구문검색, 문맥관리, 형식변환 등의 기능을 수행 
+    : 암복호화 처리, 코드변환, 압축, 구문검색, 문맥관리, 형식변환 등의 기능을 수행 
     : 데이터 단위 - Data(PPDU)
 
 7. 응용 계층 (Application Layer)
     : HTTP, FTP, SMTP, POP3, IMAP, Telnet 등
     : 일반적인 어플리케이션 단 서비스를 수행
-        -> 사용자가 네트워크에 접근할 수 있도록 인터페이스를 담당하는 계층
+        -> 사용자가 네트워크에 접근할 수 있도록 인터페이스를 담당하는 계층으로 직접 액세스 할 수 있음 
+            ex) 이메일, 데이터파일 공유, Filezilla -> FTP, GUI 기반 소프트웨어 
     : 데이터 단위 - Data (APDU)
 
 
-    @ 프로토콜 종류
-
+1~4 계층은 네트워크 간의 데이터 전송에 사용되며
+5~7 계층은 호스트 간의 데이터 전송에 사용됨.
 
 
 
 
     * 계층 정보 잘 설명됨
-<<<<<<< HEAD
-    https://dlgkstjq623.tistory.com/222
-
-    * 간략
-    https://www.ciokorea.com/news/36536
-=======
     https://shlee0882.tistory.com/110
     https://dlgkstjq623.tistory.com/222
->>>>>>> ace63d691140cdfc436bcc141ba1ec190c56c77a
+
+https://tar-cvzf-studybackup-tar-gz.tistory.com/37
+
+
+
+* osi Layer 7에 따른 패킷 이동 분석 (동작원리분석)
+https://hackhack.tistory.com/entry/OSI7-Layer-%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%8C%A8%ED%82%B7-%EC%9D%B4%EB%8F%99-%EB%B6%84%EC%84%9D%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC-%EB%B6%84%EC%84%9D
