@@ -1,0 +1,71 @@
+
+
+@ 라우터
+    - 패킷을 목적지까지 전달하기 위해 다음 네트워크 지점을 결정하는 장치나 컴퓨터 내의 소프트웨어 
+
+    * 인터페이스 : 라우터에 나와있는 접속 가능한 포트
+        - Ehternet(내부 네트워크와 연결), Serial(외부 네트워크와 연결)
+@라우팅
+    - 네트워크에서 패킷이 올바른 경로로 (혹은  최적의 경로로) 찾아가기 위해서
+        다양한 방법을 통해 길을 찾아주는 것 
+
+ @ 라우팅 프로토콜과 라우티드 프로토콜
+    - 라우팅 프로토콜 : 라우터에 살면서 라우티드 프로토콜들에게 목적지까지 가장 좋은 길을 갈 수 있게 해주는 역할
+                    ex) RIP, IGRP, OSPF, EIGRP 등
+    - 라우티드 프로토콜 : 라우팅을 당하는 프로토콜  
+                    ex) TCP/IP, IPX 등
+
+@ 라우팅 테이블
+    - 목적지, 목적지까지의 거리, 어떻게 가야 하는가의 내용이 담겨져 있는 테이블
+    - RAM에 저장이 되기 때문에 전원이 꺼지면 모두 삭제, 전원이 켜지면 다시 생성 
+    - 라우팅 데이블을 관리하는 방식 
+        - 디스턴스-벡터 알고리즘, 링크 스테이트 알고리즘 
+    * 라우팅 테이블에 포함해야하는 필수 정보
+        - 목적지 호스트 : 패킷의 최종 목적지가 되는 호스트의 주소 값 지정
+        - 다음 홉 : 목적지 호스트까지 패킷을 전달하기 위한 인접 경로를 지정 
+        => 즉, 목적지까지 도달하는 여러 경로 중 효과적인 라우팅을 지원하는 경로가 있을 수 있는데,
+            이 경로에서 다음 홉(Hop)에 위치한 우터의 주소를 기록
+     
+@ 정적, 동적 프로토콜   
+    - static routing protocol : 사용자가 일일이 경로 입력
+                                장) 라우팅 속도가 빠르고 라우팅 성능이 좋아짐
+                                단) 입력해준 경로가 잘못된 경우 하나하나 수정해야됨
+    - dynamic routing protocol : 라우터가 알아서 경로 지정 ex) RIP, OSPF, IGRP, EIGRP 등
+                                장) 여러가지 상황에서 자동으로 대응
+                                단) 라우터에 부담 
+
+@ 라우팅 프로토콜  
+    * 거리 벡터 프로토콜
+        - RIP(Routing Information Protocol) : 최소 Hop Count를 파악하여 라우팅 
+        - EIGRP(Enhanced Interior Geteway Routing Protocol) : 점진적 유형의 거리 벡터 프로토콜
+    * 링크 상태 프로토콜 
+        - OSPF(Open Shortest Path First) : 최단 경로 우선 프로토콜
+        - BGP (Border Geteway Protocol) : 외부 라우팅 프로토콜(EGP)로 AS(관리 도메인)와 AS 간 사용되는 라우팅 프로토콜
+
+@ 라우팅 종류
+    - 정적 라우팅
+    - 동적 라우팅
+    - 디폴트 라우팅 
+
+
+
+
+* 라우터 정리
+https://m.blog.naver.com/PostView.nhn?blogId=demonicws&logNo=40108441909&proxyReferer=https:%2F%2Fwww.google.com%2F
+
+
+https://nenunena.tistory.com/52
+
+* 라우터의 패킷 포워딩 과정
+https://netmanias.com/ko/post/blog/5521/arp-ip-routing-l3-switch-network-protocol/part-2-ip-router-packet-forwarding-process
+
+*ip 명령어
+https://www.lesstif.com/system-admin/ifconfig-route-linux-ip-71401706.html
+
+* 라우팅 프로토콜
+https://m.blog.naver.com/PostView.nhn?blogId=seungj1031&logNo=221012340470&proxyReferer=https:%2F%2Fwww.google.com%2F
+
+* IP패킷 전달과 라우팅
+https://kwongyo.tistory.com/22
+
+

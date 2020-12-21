@@ -1,0 +1,14 @@
+
+@ wireshark 
+    - 오픈 소스 패킷 분석 프로그램
+    - 'pcap'을 이요하여 패킷을 잡아내줌 
+
+
+* pcap (packet capture) 패킷 캡처
+
+
+sudo tcpdump -i enp2s0 icmp
+
+
+
+https://jeong-pro.tistory.com/155
