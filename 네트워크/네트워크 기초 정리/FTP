@@ -1,0 +1,5 @@
+
+@ FTP(File Transport Protocol) 
+
+    제어 신호를 주고 받는 포트번호 21
+    데이터 전송을 위한 포트는 20번 포트 
