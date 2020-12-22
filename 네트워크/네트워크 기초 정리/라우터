@@ -33,6 +33,7 @@
     - dynamic routing protocol : 라우터가 알아서 경로 지정 ex) RIP, OSPF, IGRP, EIGRP 등
                                 장) 여러가지 상황에서 자동으로 대응
                                 단) 라우터에 부담 
+** AS : 라우팅 정보를 주고 받을 수 있는 영역 
 
 @ 라우팅 프로토콜  
     * 거리 벡터 프로토콜

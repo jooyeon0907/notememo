@@ -37,8 +37,9 @@ https://kkamagistory.tistory.com/205
 
 * 홉 : 컴퓨터 네트워크에서 출발지와 목적지 사이에 위치한 경로의 한 부분. 
 
-* ARP(Address Resolution Protocol) : Layer 3에 위치한 프로토콜이며, MAC 주소와 IP 주소를 연결하는 용도로 사용.
-
+* ARP(Address Resolution Protocol) 
+    - Layer 3에 위치한 프로토콜이며, MAC 주소와 IP 주소를 연결하는 용도로 사용.
+        -> IP 주소를 다시 MAC으로 바꾸는 절차 
 
 
 * vlan
