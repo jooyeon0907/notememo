@@ -1,0 +1,97 @@
+
+@ DHCP(Dynamic Host Configuration Protocol)
+    - 네트워크상에서 동적으로 IP주소 및 기타 구성정보 등을 부여/관리하는 프로토콜
+    - PC의 수가 많아지거나 PC자체의 변동사항으로 인하여 IP 세팅이 필요할 경우 관리하기가 불편해짐
+    -> DHCP는 DHCP 서버에서 설정되어 있는 IP를 자동으로 사용자에게 할당해주기 때문에
+        각 PC들은 자동으로 IP를 받아오기만 하면 되기 때문에 편하게 IP를 관리할 수 있음.
+    - 일반적으로 IP주소, 서브넷 마스크, 디폴트 게이트웨이(라우터IP) 기본 3종 세트와
+        DNS 서버 IP 주소, 도메인 이름 같은 정보를 함께 제공해줌.
+     - BOOTP메시지 형식을 사용.
+
+    * 장점
+    - COST 절약 : 사용자 중 PC를 켠 사용자만 IP가 할당되어 고정 IP에 비해 IP 절약 효과가 있다.
+    - 효율적인 네트워크 관리 : IP 방식에 비해 사용자 IP 망 설계변경이 자유롭다.
+                             사용자에게 DHCP IP를 할당할 경우 네트워크 정보가 바뀌더라도 
+                             DHCP 서버에만 네트워크 정보를 변경해주면 되므로 네트워크 정보 변경이 유리.
+    
+    * 단점
+    - DHCP 요구 단말은 초기 부팅시 broadcast 트래픽(DHCP Discover 메시지)을 유발
+        -> 한 개의 VLAN의 설정범위에 있는 모든 단말에 전송되므로 네트워크의 성능 저하 발생 가능
+    - PC전원을 OFF할 경우 Lease Time 까지 IP가 다른 단말에 할당되지 못하게 되어 IP주소 낭비가 발생
+    - IP를 할당해주는 서버에 전적으로 의존
+        -> 서버가 다운되면 IP 할당이 안되므로 인터넷 사용불가해짐 
+            -> 악의적인 공격으로 서버의 IP자원이 고갈될 우려가 있음
+
+
+@ DHCP 구성
+    * DHCP 서버
+        - 클라이언트로부터 IP할당 요청이 들어오면
+          설정된 범위 안에서 사용하고 있지 않은 IP를 클라이언트에 부여하여 할당 가능한 IP들의 영역을 관리. 
+    **** DHCP 서버는 보통 라우터 안에서 구현(라우터에도 os가 있기 때문?). (pc에서 DHCP 서버 구축을 할 수 있기도 함 )
+    
+    * DHCP 클라이언트
+        - DHCP서버에 자신의 IP를 요청하고 IP를 부여받고 나면 TCP/IP 통신을 할 수 있다.
+
+@ DHCP 프로토콜의 원리
+    - DHCP를 통한 IP주소 할당은 "임대"라는 개념을 가진다.
+    -> DHCP 서버가 IP 주소를 영구적으로 단말에 할당하는 것이 아니고,
+       임대기간(IP Lease Time)을 명시하여 그 기간 동안만 단말이 IP 주소를 사용하도록 하는 것.
+    - 단말(DHCP Client)은 임대기간 이후에도 계속 해당 IP 주소를 사용하고자 한다면
+      IP 주소 임대기간 연장(IP Address Renewal)을 DHCP 서버에 요청해야 하고
+    - 또한 단말은 임대 받은 IP 주소가 더 이상 필요치 않게 되면 IP 주소 반납 절차(IP Address Release)를 수행하게 됨
+
+
+@ IP 주소 할당(임대) 절차에 사용되는 메시지 
+    1. Discover (발견) : Client -> server 
+        - 동일 서브넷에 위치하는 DHCP 서버를 찾기 위해 DHCP Discover 메세지를 이더넷 망에 브로드 캐스팅한다.
+        - 이를 통해 동일 서브넷 상에 있는 모든 DHCP 서버들은 이 메세지를 수신함
+            - Configuration Parameter 요구 
+
+    2. Offer (제공) :server -> Client
+        - Discover 메세지를 수신한 DHCP 서버는 DHCP Offer 메세지를 이더넷 망에 브로드캐스팅하며,
+          해당 메세지 내에 단말(Client)이 필요로 하는 네트워크 정보들
+          (단말 ip, 서브넷 마스크, Defulat Geateway, DNS 주소, Lease Time 등)이 포함되어 있다.
+    
+    3. Request (요청) : Client -> server
+        - DHCP Offer 메시지를 수신한 단말은 동일 서브넷에 DHCP 서버가 존재한다는 것을 알아차리고,
+          단말 IP 주소를 포함한 네트워크 정보를 요청하기 위해 DHCP 서버에 DHCP Request 메시지를 이더넷망에 브로드캐스팅한다.
+
+    4. Ack (수락) : server -> Client
+        - DHCP 서버가 클라이언트 자신이 사용할 구성정보 제안에 대한 수락 메세지
+
+    ** 그 외 메시지들
+        - DHCP Decline
+        - DHCP NAK : DHCP server에서 Client에게 요구한 시간이 경과했다는 메세지
+        - DHCP Release
+        - DHCP Inform
+
+    * 클라이언트가 DHCP NAK을 받을 경우 3으로 다시
+    * 클라이언트가 어떤 응답도 받지 못했을 경우 1로 다시 
+
+    * 클라이언트는 DHCP Discover 메세지에서 원하는 IP주소를 제안할 수 있다.
+    * 클라이언트는 선택한 서버의 IP 주소를 알고 있는 경우에도 DHCP Request를 브로드캐스트한다.
+        (다른 서버들이 선택되지 못했다는 것을 알리기 위해)
+
+
+    * 이미지 참고 + 설명된 사이트
+    https://jwprogramming.tistory.com/35 
+    * 더 자세한 설명 
+    https://m.blog.naver.com/PostView.nhn?blogId=hai0416&logNo=221578608161&proxyReferer=https:%2F%2Fwww.google.com%2F
+
+
+* 와이어샤크로 DHCP 과정 분석 
+ https://m.blog.naver.com/PostView.nhn?blogId=yeopil-yoon&logNo=221288525875&proxyReferer=https:%2F%2Fwww.google.com%2F
+
+
+
+
+* 예시? 
+http://www.codns.com/b/B05-123
+
+
+
+https://jwprogramming.tistory.com/35
+
+
+
+

@@ -1,0 +1,36 @@
+
+@ ARP (Address Resolution Protocol)
+    - 주소 결정 프로토콜
+    -> 논리적인 IP주소를 기반으로 (데이터링크 계층의)물리적인 MAC주소로 바꾸어 주는 주소해석 프로토콜.
+    - IP를 이용하여 MAC 주소를 알아내기 위해 연결된 모든 장비에게 Request 메시지를 보내고,
+      ARP Request 메시지를 받은 장비들은 누구에게 전달된 Request인지 IP주소를 확인하여 자신의 IP일 경우 Reply를 보내준다.
+    -> ARP 프로토콜은 Request를 보내기 위해 '브로드캐스트 방식'을 사용한다.
+    - 목적지 IP주소가 같은 네트워크일 경우에는 
+      해당 장비를 직접 찾는 Request 메시지를 브로드 캐스트로 보내고,
+    - 다른 네트워크일 경우에는 직접 브로드캐스트를 보낼 수 없으니,
+      Gate-way로 데이터를 전달하기위해 GW에게 Request를 보낸다.
+    -> 즉, 브로드캐스트가 도달할 수 없는 다른 네트워크에는 ARP를 직접 보낼 수 X
+
+@ ARP Cache Table
+    - ARP로 MAC주소를 알아오는 과정에서 브로드캐스트 방식을 사용하는데,
+      브로드캐스트는 많이 일어날 수록 장비의 과부하와 성능저하를 가져옴.
+    -> 그래서 한번 알아온 정보는 ARP Table에 일정시간 동안 저장하고,
+       통신하고자 하는 목적지의 MAC주소가 ARP table에 저장되어 있는 경우에는
+       ARP 프로토콜이 동작되지 않음.
+
+
+@ wireshark로 ARP 패킷 분석
+    https://blockdmask.tistory.com/189
+    - 목적지의 IP 주소는 알지만 MAC 주소를 모를 때 Target MAC address 부분을 00:00:00:00:00:00으로 채우고
+      패킷의 목적지를 broadcast(ff:ff:ff:ff:ff:ff)로 하여 네트워크 상의 모든 노드들한테 뿌려서
+      Target MAC address를 얻어오는 것을 ARP Protocol이 하는 일이다. 
+
+* 설명 잘 나와있음 (헤더, 패킷분석, 동작과정)
+https://musclebear.tistory.com/12
+
+
+
+
+
+
+

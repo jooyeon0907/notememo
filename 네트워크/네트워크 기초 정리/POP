@@ -1,0 +1,29 @@
+
+@ POP3(Post Office Protocol)
+    - 메일을 수신할 때 사용하는 프로토콜
+    -> 메일을 메일 서버로부터 자신의 PC로 가져올 때 메일 클라이언트(Gmail, NAVER, Outlook)가
+        메일 서버로부터 메일을 가져와줌
+    - 응용계층 - TCP 110번 포트 사용
+
+@ POP 프로토콜 특징
+    - 읽
+
+
+
+
+** IMAP(Internet Mail Access Protocol)
+    - POP3와 비슷하거나 더 많은 기능을 제공
+
+
+
+* 메일 송수신 프로토콜
+https://jdh5202.tistory.com/505
+https://m.blog.naver.com/PostView.nhn?blogId=minki0127&logNo=220780539032&proxyReferer=https:%2F%2Fwww.google.com%2F
+https://beansberries.tistory.com/entry/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-MIME-SMTP-POP
+
+* 간단 정리
+https://sambalim.tistory.com/60
+
+
+
+

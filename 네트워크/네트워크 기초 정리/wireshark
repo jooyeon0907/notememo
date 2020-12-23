@@ -9,6 +9,11 @@
 
 sudo tcpdump -i enp2s0 icmp
 
+@ 와이어샤크 패킷 영역
+https://blockdmask.tistory.com/184
 
 
+*
 https://jeong-pro.tistory.com/155
+
+

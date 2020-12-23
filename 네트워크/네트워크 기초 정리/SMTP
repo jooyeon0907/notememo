@@ -1,0 +1,50 @@
+
+@ SMTP (Simple Mail Transfer Protocol)
+    - 인터넷에서 전자 메일을 전송하기 위한 표준화 (거의 모든 email 소프트웨어들이 사용하는 프로토콜)
+    - 두 메일 시스템이 전자우편을 교환할 수 있게 하는, 비교적 간단한 메세지 전송용 프로토콜
+
+    -TCP/IP 응용 프로그램 계층
+    - 메일 서버에서 사용하는 TCP 포트는 25이고, 
+    - 메일 클라이언트는 통신을 위해 포트 587 또는 465를 사용.
+
+    - SMTP는 7bit ASCII 문자만을 지원하므로, 
+      이 외의 형태의 데이터를 가지는 데이터는 제대로 전송 할 수 없다. 
+    - 화상이나 음성 등의 데이터를 포함한 문서는 전송 X 
+    => MIME 방식을 이용하면 가능 
+
+
+@ Mail 서비스 운영
+    * MUA(Mail User Agent) or UA (User Agent)
+        - 사용자가 메일을 송수신하기 위해 사용하는 프로그램
+        ex) 아웃룩
+
+    * MTA(Mail Transfer Agent) -> SMTP server 라고도 함 
+        - MUA로부터 전달받은 메일을 수신자의 MTA까지 전송해주는 프로그램 
+        - 메일 전송 서버로서 MUA에서 전송된 E-mail을 처리하는 우체국 역할 
+        - 수신된 메일이 있으면 MDA로 메일을 전달 
+        ex) 유닉스 기본 프로그램
+
+    * MDA(Mail Delivery Agent)
+        - 목적지 MTA에 도착하면, 수신된 메일을 사용자의 메일함에 저장하는 프로그램
+        -> MTA로부터 E-mail을 받아서 받는 사람의 MUA로 메일을 전달해주는 역할. 
+
+
+
+@ SMTP를 이용한 메일 처리 방식
+    - MUA로부터 MTA까지, MTA부터 목적지 MTA까지 메일을 전송할 때 사용하는 단순 메일 전송 프로토콜.
+        TCP 25번 Port를 사용.
+
+    - 전자 메일 서비스를 사용하는 클라이언트(MUA)는 메일 서버에 메일을 보관하고 (->메일 클라이언트 프로그램),
+      메일 제출 에이전트(Mail Submmision Agent)는 포트 587에서 SMTP를 사용함
+    - MSA는 메일을 해당 메일 전송 에이전트(MTA)로 전달함.
+
+
+    - 이메일 주소는 "username@도메인 이름" 형식으로 구성
+    - 
+
+
+** 대부분의 메일 서버는 SMTP,MIME를 송신 프로토콜로 사용하고, POP3 or IAMP를 수신 프로토콜로 이용함.
+
+
+https://www.joinc.co.kr/w/Site/Network_Programing/Documents/SMTP
+https://blog.naver.com/eqelizer/20134840619
