@@ -1,6 +1,7 @@
 
 @ ARP (Address Resolution Protocol)
     - 주소 결정 프로토콜
+    - ARP는 layer 2인 이더넷 환경에서 목적지 IP 주소에 대한 MAC주소 변환 동작을 담당. (스위치는 ETH MAC address를 기반으로 장비의 경로 파악)
     -> 논리적인 IP주소를 기반으로 (데이터링크 계층의)물리적인 MAC주소로 바꾸어 주는 주소해석 프로토콜.
     - IP를 이용하여 MAC 주소를 알아내기 위해 연결된 모든 장비에게 Request 메시지를 보내고,
       ARP Request 메시지를 받은 장비들은 누구에게 전달된 Request인지 IP주소를 확인하여 자신의 IP일 경우 Reply를 보내준다.
@@ -11,12 +12,23 @@
       Gate-way로 데이터를 전달하기위해 GW에게 Request를 보낸다.
     -> 즉, 브로드캐스트가 도달할 수 없는 다른 네트워크에는 ARP를 직접 보낼 수 X
 
+    ** 스위치는 ETH MAC address를 기반으로 장비의 경로 파악,
+       라우터는 IP address를 이용하여 네트워크 경로 파악 
+
+  * ip주소로 데이터를 전송하는데 왜 mac주소가 필요한가?
+     - 목적지 ip주소까지 보내기 위해 다른 장비들을 통해 거쳐가야되는데,
+       그 장비들의 주소를 알기위해서 필요 
+     -> 어떤 포트를 통해 전송할지를 판단하기 위해서 mac 주소이용 
+       (IP주소는 논리적인 주소이 뿐, 실제 네트워크 통신은 물리적 주소인 MAC 주소를 통해 이루어지기 때문)
+
+
 @ ARP Cache Table
     - ARP로 MAC주소를 알아오는 과정에서 브로드캐스트 방식을 사용하는데,
       브로드캐스트는 많이 일어날 수록 장비의 과부하와 성능저하를 가져옴.
     -> 그래서 한번 알아온 정보는 ARP Table에 일정시간 동안 저장하고,
        통신하고자 하는 목적지의 MAC주소가 ARP table에 저장되어 있는 경우에는
        ARP 프로토콜이 동작되지 않음.
+      
 
 
 @ wireshark로 ARP 패킷 분석
@@ -29,8 +41,12 @@
 https://musclebear.tistory.com/12
 
 
+https://sjlim5092.tistory.com/22
 
 
 
 
 
+
+* 
+https://aahc.tistory.com/9
