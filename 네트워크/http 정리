@@ -1,0 +1,49 @@
+
+@ http ? 
+    - 클라이언트와 서버가 요청과 응답으로 데이터를 주고 받으며 통신할 수 있는 프로토콜
+
+    - 비연결성 프로토콜 -> 요청/응답으로 통신
+
+@ http method 
+    * GET
+        - 데이터를 URL에 포함하여 요청 
+            -> 보안 안좋고, 데이터 길이 제한있으나, 전송속도가 빠름
+        - 데이터를 읽거나 검색할 때 사용
+    * POST
+        - 데이터를 URL에 포함하지 않고 HTTP 메시지 body에 포함하여 요청
+            -> 보안성, 데이터 길이 제한 x 전송속도가 GET에 비해 느림 
+        - 
+    * DELETE
+        - 요청된 자원을 삭제할 것을 요청함
+
+@ http 메시지
+    - 헤더는 key:valu로 구성됨
+
+    * 요청(Request) 메시지
+        [상태문]
+            - http 메서드(GET,POST,DELETE), 요청 URL(/), http 버전(HTTP/1.1)
+        [헤더]
+            - request헤더 (Host:www.naver.com, User-Agent)
+            - general 헤더 (Connection:keep-alive)
+            - entity 헤더 (Content-Type)
+        [공백]
+        [바디] 
+            - 서버에 전송하는 데이터
+
+    * 응답(Response) 메시지
+        [상태문]
+            - http 버전(HTTP/1.1), 상태코드(200,404), 상태메시지(ok, not found)
+        [헤더]
+            - request헤더 (Server:NWS)
+            - general 헤더 (Connection:keep-alive)
+            - entity 헤더 (Content-Type)
+        [공백]
+        [바디]
+            - 클라이언트에 전달하는 데이터
+
+
+@ mime type
+    - http 통신에서 전송 데이터를 표현
+    - '/' 를 기준으로 메인타입과 서브타입을 구분
+    - Content-type 헤더를 기준으로 HTTP 메시지에 담긴 데이터를 분석학 파싱
+    

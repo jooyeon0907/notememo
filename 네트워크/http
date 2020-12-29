@@ -45,7 +45,6 @@ https://hees-dev.tistory.com/53?category=864258
 
 
 @ HTTP 메시지
-	- 서버가 응답할 때 응답에 대한 정보를 담아 클리어언트에게 보내는 메시지 
 	- 시작줄(start line), 헤더(headers), 본문(body)으로 구성 
 	- 헤더는 Key:Value로 되어있음 
 
