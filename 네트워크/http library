@@ -1,0 +1,73 @@
+
+@ Http library (http client 역할)
+
+@ urllib - 파이선 http library
+    - 파이썬에서 웹과 관련된 데이터를 손쉽게 이용하도록 도와주는 라이브러리
+    
+    - urllib 라이브러리는 내부에 총 4개의 모듈이 존재
+        urllib.request : URL 요청을 위한 클래스나 함수들 정의
+        urllib.parse   : URL의 구문을 분석하기 위한 함수들 정의
+        urllib.error   : urllib.request 모듈에 의해 발생된 예외 처리를 위한 예외 클래스들이 정의
+        urllib.robotparse : 웹사이트의 robots.txt 파일에 대한 분석을 위한 단일 클래스가 정의
+
+    @ request 모듈  
+        - 웹을 열어서 데이터를 읽어오는 역할
+        >>> import urllib.request
+        >>> rep = urllib.request
+
+    * 웹 문서 불러오기
+        >>> req.urlopen("https://www.naver.com")
+        <http.client.HTTPResponse object at 0x7f6216a65df0>
+    -> urlopen 함수의 인자는 데이터를 얻고 싶은 웹 페이지의 주소를 주고,
+        웹에서 얻은 데이터에 대한 객체를 반환해줌
+    
+    * 웹 서버 정보 받아오기
+        >>> d = req.urlopen("https://www.naver.com")
+        >>> status = d.getheaders()    
+    -> getheaders() 함수를 사용하면 서버에 대한 정보를 리스트로 돌려준다. (헤더정보)
+
+    * 웹 페이지의 상태 확인하기
+        >>> d.status
+        200
+    
+    * 웹 페이지의 데이터 읽어오기
+        d.read()
+    -> 문서의 HTML 코드 출력 (response로 온 코드)
+
+    @ parse 모듈
+        - 간단하게 URL과 파라미터를 다룰 수 있음
+
+    *
+        >>> from urllib import parse
+        >>> url = parse.urlparse("http://localhost:5000/index")
+        >>> url
+        ParseResult(scheme='http', netloc='localhost:5000', path='/index', params='', query='', fragment='')
+    
+    * 속성 얻기
+        >> url.geturl()
+        'http://localhost:5000/index'
+        >> url.scheme  # 속성값 얻기
+        'http'
+        >> url[0] # 인덱스로 접근가능
+        'http'
+        >> url[1]
+        'localhost:5000'
+
+    * 쿼리 스트링 다루기 -  parse_qs() 
+        >>> parse.parse_qs(url.query)  # 딕셔너리 리턴
+
+
+
+
+
+
+
+
+
+* urllib 라이브러리
+https://m.blog.naver.com/PostView.nhn?blogId=jsky10503&logNo=221281531195&categoryNo=0&proxyReferer=https:%2F%2Fwww.google.com%2F
+https://junho85.pe.kr/937
+https://dololak.tistory.com/254
+
+*
+https://m.blog.naver.com/is_king/221461183877
