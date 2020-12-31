@@ -1,0 +1,19 @@
+
+# 파이썬 암호화 라이브러리 사용하기 (AES, RSA, Hashing-SHA-1,SHA-256)
+
+
+# 라이브러리 설치
+"""
+$ pip install pycryptodomex
+Collecting pycryptodomex
+  Downloading pycryptodomex-3.9.9-cp38-cp38-manylinux1_x86_64.whl (13.7 MB)
+     |████████████████████████████████| 13.7 MB 1.6 MB/s 
+Installing collected packages: pycryptodomex
+Successfully installed pycryptodomex-3.9.9
+"""
+"""
+ AES 암호화/복호화 예제
+    - 암호화 할 값을 입력해주면 암호화된 값 보여주기
+    - 다시 암호화 된 값을 복호화 해주어 입력된 값 보여주기
+
+"""
