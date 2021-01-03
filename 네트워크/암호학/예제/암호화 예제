@@ -17,3 +17,11 @@ Successfully installed pycryptodomex-3.9.9
     - 다시 암호화 된 값을 복호화 해주어 입력된 값 보여주기
 
 """
+
+
+---
+Hashing
+@SHA1
+https://uiandwe.tistory.com/1106
+https://davinci-ai.tistory.com/19
+@SHA256
