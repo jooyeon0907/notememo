@@ -1,9 +1,9 @@
 
 @
 Sysmmetric Key Algorithm 대칭암호화 
+	- AES -대칭
 Asymmetric Key Algorithm 비대칭암호화 (공개키,비공개키)
-AES -대칭
-RSA / Diffie-Hellman -비대칭 
+	- RSA / Diffie-Hellman -비대칭 
 Hasing - SHA (Secure Hash Algorithm)
 -----------------------
 
@@ -35,6 +35,15 @@ Hasing - SHA (Secure Hash Algorithm)
 				-> 데이터 제공자의 신원 확인이 보장된다는 뜻이기 때문에 전자서명에도 이용함.  
 
 
+	* 정리
+	1) 인증서에 들어있는 서버의 공개키는 공개키 방식.
+	2 서버/클라이언트 양측 모두 pre master secret를 가지고 이 값은 mster secret으로 변환되어
+	 	최종적으로 session key가 만들어짐. 서버와 클라이언트 실제 데이터 전송 시 이 session key를 사용해서 암호화/복호화 함(대칭키)
+		-> 컴퓨터에 부담을 덜 주기 위해  
+
+
+
+
 
 
 https://mkil.tistory.com/461
@@ -43,6 +52,11 @@ https://mkil.tistory.com/461
 https://www.crocus.co.kr/1236
 더 자세한 설명 + 해시 함수
 https://perfectacle.github.io/2018/04/13/key-algorithm/
+
+
+* 읽어보기 - AES 알고리즘의 mode 
+https://m.blog.naver.com/PostView.nhn?blogId=sanainfo&logNo=221517009223&proxyReferer=https:%2F%2Fwww.google.com%2F
+
 
 
 * 읽어보기 -ssh 암호
