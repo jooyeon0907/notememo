@@ -53,7 +53,7 @@ encrypt(self, plaintext, K)
 def rsa_decrypt(msg):   
     private_key = readPEM()
     decdata = private_key.decrypt(msg) # 공개키로 암호화한 메시지 개인키로 복호화
-    return decdata
+    return decdata.decode('utf-8')
 """
 decrypt(self, ciphertext)
 -> RSA를 사용하여 데이터를 해독.

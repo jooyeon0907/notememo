@@ -66,7 +66,8 @@ class AESCipher:
         # print(f'cipher.decrypt( enc[16:]) : {cipher.decrypt( enc[16:])}') # b'Hellooooooooooooo\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f'
         # s = b'Hellooooooooooooo\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f'
         # print('=========')
-        # print(ord(s[len(s)-1:])) ## 15
+        # print( len(s)-1 ) # 31
+        # print( ord(s[len(s)-1:]) ) ## ord(s[31:]) -> 15
         # print(s[:15])  ## b'Hellooooooooooo'
         return unpad(cipher.decrypt( enc[16:]) ).decode('utf-8')
     """
