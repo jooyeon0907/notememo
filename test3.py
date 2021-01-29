@@ -9,7 +9,7 @@ AUTO_BACKUP_SCHEDULE_POLICY = config['AUTO_BACKUP_SCHEDULE_POLICY']
 
 cron = CronTab(user=True)
 job = cron.new()
-job.setall(AUTO_BACKUP_SCHEDULE_POLICY)
+job.setall('2 06 2 1 5')
 # cron.write()
 
 
@@ -36,18 +36,22 @@ def test():
 # sched.add_job(test, 'cron', second="*/1", minute="*", hour="*", month="*", day="*", week="*")
 # sched.start()
 
+
 def backup_schedule():
     schedule = BackgroundScheduler()
     schedule.start()
-    schedule.add_job(test, 'cron', minute="*/3", hour=job.hours, month=job.day, day=job.months, week=job.dow)
+    schedule.add_job(test, 'cron', second="*/2", minute="*", hour="*", month="*", day="*", week="*")
+    while True:
+        pass
+
 backup_schedule_thread = threading.Thread(target=backup_schedule, daemon= True)
 backup_schedule_thread.start()
-# cnt =0
 
+# cnt =0
 while True:
     # cnt += 1
     # print(f"cnt : {cnt}")
-    time.sleep(1)
+    time.sleep(10)
 
 
 
