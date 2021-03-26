@@ -37,7 +37,7 @@ class AESCipher:
      #   print(f"cipher.encrypt( raw.encode('utf-8') )  :{cipher.encrypt( raw.encode('utf-8') ) }")
         return base64.b64encode( iv + cipher.encrypt( raw.encode('utf-8') ) )
            # raw.encode('utf-8') 16바이트 바이너리로 변환 한 후, 다시  base64.b64encode로 인코딩 -> byte를 기준으로 문자열화 시키는 인코딩 방식
-  
+           # 복호화시 iv를 알아야하므로 데이터 앞부분에 추가한다.  
     """
     AES.new(key, *args, **kwargs) 
     -> 새 AES 암호를 생성 
